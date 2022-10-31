@@ -27,7 +27,7 @@ jobs:
     - name: NextGen Static Analysis
       run: |
        docker build -t vuln_django .
-       ${GITHUB_WORKSPACE}/sl analyze --strict --wait --app JS-vuln_django_play --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --container vuln_django --js --cpg .
+       ${GITHUB_WORKSPACE}/sl analyze --wait --app JS-vuln_django_play --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --container vuln_django --js .
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
         
